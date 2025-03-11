@@ -17,11 +17,11 @@ export default async function askTogetherAI(prompt) {
       }
     );
 
-    console.log("Response status:", response.status);
-    console.log("Response headers:", response.headers);
+    // console.log("Response status:", response.status);
+    // console.log("Response headers:", response.headers);
 
     const data = await response.json();
-    console.log("Response data:", data);
+    // console.log("Response data:", data);
 
     if (!response.ok) {
       throw new Error(`API error: ${data?.error?.message || "Unknown error"}`);
