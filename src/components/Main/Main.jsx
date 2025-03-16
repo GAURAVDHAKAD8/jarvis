@@ -40,11 +40,7 @@ const Main = () => {
                 animate="visible"
                 transition={{ duration: 1.5, ease: "easeOut" }}
               >
-                <img
-                  src="/jarvislogo.png"
-                  alt=""
-                  className="jarvislogoIntro"
-                />
+                <img src="/jarvislogo.png" alt="" className="jarvislogoIntro" />
                 Welcome To Jarvis
               </motion.h2>
             </div>
@@ -69,7 +65,6 @@ const Main = () => {
                 <img
                   src={assets.gemini_icon}
                   alt="Gemini"
-                  style={{ marginBottom: "10px" }}
                 />
                 {loadingGemini ? (
                   <div className="loader">
@@ -80,7 +75,8 @@ const Main = () => {
                 ) : (
                   <div>
                     <div
-                      style={{ marginBottom: "10px" }}
+                      className="Ai"
+                      
                       dangerouslySetInnerHTML={{ __html: resultData }}
                     ></div>
                     {resultData && (
@@ -101,7 +97,7 @@ const Main = () => {
                 <img
                   src="/meta.png"
                   alt="ChatGPT"
-                  style={{ marginBottom: "12px" }}
+                 
                 />
                 {loadingTogetherAI ? (
                   <div className="loader">
@@ -112,6 +108,7 @@ const Main = () => {
                 ) : (
                   <div>
                     <div
+                      className="Ai"
                       dangerouslySetInnerHTML={{ __html: togetherAiData }}
                     ></div>
                     {togetherAiData && (

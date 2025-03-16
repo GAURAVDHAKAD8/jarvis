@@ -181,7 +181,7 @@
 
 .intro div {
   display: flex;
-  margin-top: 80px;
+  margin-top: 44px;
   flex-direction: column;
   align-items: center;
   color: #fff;
@@ -223,12 +223,15 @@
 }
 .result-container {
   display: flex;
-  gap: 20px;
+  gap: 7px;
   justify-content: center;
   align-items: flex-start;
   width: 100%;
 }
 
+.Ai{
+  margin-bottom: 11px;
+}
 .result-data {
   flex: 1;
   max-width: 450px;
@@ -283,7 +286,7 @@
 @media (max-width: 600px) {
   .main-bottom input {
     flex: none;
-    width: 150px;
+    width: 76%;
   }
   .main-bottom img {
     width: 20px;
@@ -291,6 +294,9 @@
   .search-box {
     margin-top: 10px;
     padding: 5px 20px;
+  }
+  .intro div{
+    margin-top:80px; 
   }
   .intro div h2 {
     font-size: 30px;
@@ -300,5 +306,8 @@
   }
   .intro div p{
     font-size: 12px;
+  }
+  .Ai{
+    font-size: 10px;
   }
 }
