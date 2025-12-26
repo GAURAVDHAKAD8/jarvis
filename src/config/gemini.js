@@ -1,36 +1,42 @@
-
-import {
-  GoogleGenerativeAI,
-  HarmCategory,
-  HarmBlockThreshold,
-}  from "@google/generative-ai";
+// config/gemini.js - REPLACE ENTIRE FILE WITH THIS
 
 const apiKey = import.meta.env.VITE_GEMINI_AI_KEY;
-const genAI = new GoogleGenerativeAI(apiKey);
-
-const model = genAI.getGenerativeModel({
-  model: "gemini-2.0-flash",
-});
-
-const generationConfig = {
-  temperature: 1,
-  topP: 0.95,
-  topK: 40,
-  maxOutputTokens: 8192,
-  responseMimeType: "text/plain",
-};
 
 async function run(prompt) {
-  const chatSession = model.startChat({
-    generationConfig,
-    history: [],
-  });
+  try {
+    console.log("Calling Groq API...");
 
-  const result = await chatSession.sendMessage(prompt);
-  const responseText = await result.response.text();
-  // console.log(responseText);
+    // Using Groq API instead of Gemini
+    const response = await fetch(
+      "https://api.groq.com/openai/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "llama-3.1-8b-instant", // Fast free model
+          messages: [{ role: "user", content: prompt }],
+          temperature: 0.7,
+          max_tokens: 1024,
+        }),
+      }
+    );
 
-  return responseText;
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
+    }
+
+    const data = await response.json();
+    return data.choices[0].message.content;
+  } catch (error) {
+    console.error("API Error:", error);
+    return `**AI Response**\n\nHello! This is a response from Groq AI (replacing Gemini).\n\nError details: ${
+      error.message || "Connection issue"
+    }`;
+  }
 }
 
 export default run;
