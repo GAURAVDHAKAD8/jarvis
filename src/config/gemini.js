@@ -1,6 +1,6 @@
 // config/gemini.js - REPLACE ENTIRE FILE WITH THIS
 
-const apiKey = import.meta.env.VITE_GEMINI_AI_KEY;
+const apiKey = import.meta.env.GROQ_API_KEY;
 
 async function run(prompt) {
   try {
