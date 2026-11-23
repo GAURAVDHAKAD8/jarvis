@@ -46,7 +46,7 @@ const Main = () => {
             </div>
             <div className="paragraphs">
               <p>Get insights from multiple AI models in one place.</p>
-              <p>Type your query below and see how different AIs respond! 🚀</p>
+              <p>Type your query below and see how different AIs respond!!! 🚀</p>
             </div>
           </div>
         </div>
