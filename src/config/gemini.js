@@ -16,7 +16,7 @@ async function run(prompt) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "llama-3.1-8b-instant", // Fast free model
+          model: "openai/gpt-oss-20b", // Fast free model
           messages: [{ role: "user", content: prompt }],
           temperature: 0.7,
           max_tokens: 1024,
